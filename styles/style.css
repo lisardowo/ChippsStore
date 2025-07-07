@@ -1,0 +1,332 @@
+/* Windows XP Style CSS - Root Variables and Base Styles */
+
+:root {
+  /* Windows XP Color Palette */
+  --xp-blue: #0054e3;
+  --xp-light-blue: #4e9eff;
+  --xp-gradient-start: #2353dc;
+  --xp-gradient-end: #4e9eff;
+  --xp-dark-blue: #003dc1;
+  
+  /* Window Colors */
+  --window-bg: #ece9d8;
+  --window-border: #0054e3;
+  --window-titlebar: linear-gradient(to bottom, #0054e3, #2353dc);
+  --window-inactive: #7a96df;
+  
+  /* Button Colors */
+  --button-face: #ece9d8;
+  --button-highlight: #ffffff;
+  --button-shadow: #aca899;
+  --button-dark-shadow: #716f64;
+  --button-pressed: #c1c1c1;
+  
+  /* Text Colors */
+  --text-primary: #000000;
+  --text-secondary: #333333;
+  --text-white: #ffffff;
+  --text-disabled: #aca899;
+  
+  /* Background */
+  --desktop-bg: linear-gradient(to bottom, #58a6f7 0%, #3d7abd 50%, #1e4b7a 51%, #2e6bb8 100%);
+  
+  /* Typography */
+  --font-primary: 'Tahoma', 'MS Sans Serif', sans-serif;
+  --font-secondary: 'Arial', sans-serif;
+  --font-system: 'MS Sans Serif', system-ui, sans-serif;
+  
+  /* Spacing */
+  --spacing-xs: 2px;
+  --spacing-sm: 4px;
+  --spacing-md: 8px;
+  --spacing-lg: 16px;
+  --spacing-xl: 24px;
+  
+  /* Window Measurements */
+  --titlebar-height: 24px;
+  --window-border-width: 2px;
+  --button-height: 23px;
+  
+  /* Shadows */
+  --window-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+  --button-shadow: inset 1px 1px 0 var(--button-highlight), inset -1px -1px 0 var(--button-shadow);
+  --pressed-shadow: inset -1px -1px 0 var(--button-highlight), inset 1px 1px 0 var(--button-shadow);
+}
+
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-primary);
+  font-size: 11px;
+  background: var(--desktop-bg);
+  color: var(--text-primary);
+  line-height: 1.4;
+  overflow-x: hidden;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Desktop Background */
+.xp-desktop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--desktop-bg);
+  z-index: -2;
+}
+
+/* Floating Clouds Effect */
+.xp-clouds {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+  background-image: 
+    radial-gradient(ellipse 100px 40px at 200px 100px, rgba(255, 255, 255, 0.1), transparent),
+    radial-gradient(ellipse 80px 30px at 80% 200px, rgba(255, 255, 255, 0.08), transparent),
+    radial-gradient(ellipse 120px 50px at 60% 300px, rgba(255, 255, 255, 0.05), transparent);
+  animation: clouds-float 20s infinite linear;
+}
+
+@keyframes clouds-float {
+  0% { transform: translateX(-100px); }
+  100% { transform: translateX(100px); }
+}
+
+/* Windows XP Window Styling */
+.xp-window {
+  background: var(--window-bg);
+  border: var(--window-border-width) solid var(--window-border);
+  border-radius: 8px 8px 0 0;
+  box-shadow: var(--window-shadow);
+  margin: var(--spacing-lg);
+  overflow: hidden;
+  position: relative;
+}
+
+.xp-titlebar {
+  height: var(--titlebar-height);
+  background: var(--window-titlebar);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 var(--spacing-sm);
+  user-select: none;
+}
+
+.xp-titlebar-text {
+  color: var(--text-white);
+  font-weight: bold;
+  font-size: 11px;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.xp-icon {
+  font-size: 14px;
+}
+
+.xp-window-controls {
+  display: flex;
+  gap: 2px;
+}
+
+.xp-control {
+  width: 16px;
+  height: 14px;
+  background: var(--button-face);
+  border: 1px solid var(--button-shadow);
+  font-size: 9px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-primary);
+  font-family: 'Marlett', monospace;
+}
+
+.xp-control:hover {
+  background: var(--button-highlight);
+}
+
+.xp-control:active {
+  background: var(--button-pressed);
+  box-shadow: var(--pressed-shadow);
+}
+
+.xp-control.close:hover {
+  background: #ff4444;
+  color: white;
+}
+
+.xp-window-content {
+  padding: var(--spacing-lg);
+  background: var(--window-bg);
+  min-height: 250px;
+}
+
+/* Windows XP Button Styling */
+.xp-button {
+  background: var(--button-face);
+  border: 1px outset var(--button-face);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  font-family: var(--font-primary);
+  font-size: 11px;
+  cursor: pointer;
+  min-height: var(--button-height);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  transition: all 0.1s ease;
+  color: var(--text-primary);
+}
+
+.xp-button:hover {
+  background: #f0f0f0;
+  border-color: var(--xp-blue);
+}
+
+.xp-button:active {
+  border: 1px inset var(--button-face);
+  background: var(--button-pressed);
+}
+
+.xp-button.active {
+  background: var(--button-pressed);
+  border: 1px inset var(--button-face);
+}
+
+/* Form Elements */
+.xp-input, .xp-textarea {
+  border: 2px inset var(--window-bg);
+  padding: var(--spacing-sm);
+  font-family: var(--font-primary);
+  font-size: 11px;
+  background: white;
+  color: var(--text-primary);
+}
+
+.xp-input:focus, .xp-textarea:focus {
+  outline: 1px dotted var(--text-primary);
+  outline-offset: -3px;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-primary);
+  font-weight: bold;
+  margin-bottom: var(--spacing-md);
+  color: var(--text-primary);
+}
+
+.xp-title {
+  font-size: 16px;
+  font-weight: bold;
+  color: var(--text-primary);
+}
+
+.xp-title .blue {
+  color: var(--xp-blue);
+}
+
+p {
+  font-family: var(--font-secondary);
+  margin-bottom: var(--spacing-md);
+  line-height: 1.5;
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+/* Section Spacing */
+section {
+  margin: var(--spacing-xl) 0;
+}
+
+/* Section Titles */
+.section-title {
+  font-size: 14px;
+  font-weight: bold;
+  text-align: left;
+  margin-bottom: var(--spacing-lg);
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--button-shadow);
+  padding-bottom: var(--spacing-sm);
+}
+
+/* Utility classes for responsive design */
+.mobile-hidden {
+  display: block;
+}
+
+.mobile-only {
+  display: none;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .mobile-hidden {
+    display: none;
+  }
+  
+  .mobile-only {
+    display: block;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .xp-window {
+    margin: var(--spacing-sm);
+    border-radius: 4px 4px 0 0;
+  }
+  
+  .xp-window-content {
+    padding: var(--spacing-md);
+  }
+  
+  .container {
+    padding: 0 var(--spacing-sm);
+  }
+}
+
+@media (max-width: 480px) {
+  .xp-titlebar-text {
+    font-size: 10px;
+  }
+  
+  .xp-button {
+    padding: var(--spacing-xs) var(--spacing-md);
+    font-size: 10px;
+    min-height: 20px;
+  }
+  
+  .section-title {
+    font-size: 12px;
+  }
+}
+

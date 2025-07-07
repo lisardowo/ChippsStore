@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>ChippsStore</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/animations.css">
+    <link rel="stylesheet" href="styles/responsive.css">
+</head>
+<body>
+    <!-- Background Effects -->
+    <div class="xp-desktop"></div>
+    <div class="xp-clouds"></div>
+    
+    <!-- Header -->
+    <header class="main-header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <h1 class="xp-title">Chipps<span class="blue">Store</span></h1>
+                    <span class="tagline">Merchandise</span>
+                </div>
+                
+                <!-- Mobile menu toggle -->
+                <button class="mobile-menu-toggle mobile-only" id="mobile-menu-toggle">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+                
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="#home" class="nav-link active">HOME</a></li>
+                    <li><a href="#products" class="nav-link">PRODUCTS</a></li>
+                    <li><a href="#about" class="nav-link">ABOUT</a></li>
+                    <li><a href="#contact" class="nav-link">CONTACT</a></li>
+                </ul>
+                
+                <!-- Right side controls -->
+                <div class="nav-right-controls">
+                    <div class="xp-userLogin">
+                        <button class="xp-button login-btn" id="login-btn">Login</button>
+                    </div>
+                    <div class="cart-container">
+                        <button id="cart-btn" class="xp-button cart-btn">
+                            <span class="cart-icon">🛒</span>
+                            <span class="mobile-hidden">Cart</span>
+                            <span id="cart-count" class="cart-count">0</span>
+                        </button>
+                    </div>
+                </div>
+               
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="xp-window hero-window">
+            <div class="xp-titlebar">
+                <div class="xp-titlebar-text">
+                    <span class="xp-icon">💻</span>
+                    Welcome to my Store
+                </div>
+                <div class="xp-window-controls">
+                    <button class="xp-control minimize">_</button>
+                    <button class="xp-control maximize">□</button>
+                    <button class="xp-control close">×</button>
+                </div>
+            </div>
+            <div class="xp-window-content">
+                <div class="hero-content">
+                    <h2 class="hero-title">Handmade Charms</h2>
+                    <p class="hero-subtitle">Experss yourself with some of my desings or let me bring to the world your idea!</p>
+                    </div>
+                    <div class="hero-visual">
+                       
+                    <button class="xp-computer cta-button" onclick="scrollToProducts()">
+                       
+                    </button>
+                
+                
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="products-section">
+        <div class="container">
+            <div class="xp-window products-window">
+                <div class="xp-titlebar">
+                    <div class="xp-titlebar-text">
+                        <span class="xp-icon">📦</span>
+                        Product Catalog - Internet Explorer
+                    </div>
+                    <div class="xp-window-controls">
+                        <button class="xp-control minimize">_</button>
+                        <button class="xp-control maximize">□</button>
+                        <button class="xp-control close">×</button>
+                    </div>
+                </div>
+                <div class="xp-window-content">
+                    <h2 class="section-title">Available Products</h2>
+                    
+                    <!-- Filter Controls -->
+                    <div class="filter-controls">
+                        <button class="xp-button filter-btn active" data-filter="all">All Items</button>
+                        <button class="xp-button filter-btn" data-filter="sticker">Stickers</button>
+                        <button class="xp-button filter-btn" data-filter="posters">Prints/Posters</button>
+                        <button class="xp-button filter-btn" data-filter="pottery">Pottery</button>
+                        <button class="xp-button filter-btn" data-filter="accessories">Accessories</button>
+                    </div>
+
+                    <!-- Products Grid -->
+                    <div id="products-grid" class="products-grid">
+                        <!-- Products will be loaded dynamically -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="xp-window about-window">
+                <div class="xp-titlebar">
+                    <div class="xp-titlebar-text">
+                        <span class="xp-icon">ℹ️</span>
+                        About My Store - Notepad
+                    </div>
+                    <div class="xp-window-controls">
+                        <button class="xp-control minimize">_</button>
+                        <button class="xp-control maximize">□</button>
+                        <button class="xp-control close">×</button>
+                    </div>
+                </div>
+                <div class="xp-window-content">
+                    <h2 class="section-title">About ChippssStore</h2>
+                    <div class="about-content">
+                        <div class="about-text">
+                            <p>Placeholder en lo q alex m manda su about</p>
+                            <p>Placeholder en lo q alex m manda su about.</p>
+                        </div>
+                        <div class="about-visual">
+                            <div class="xp-monitor"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="xp-window contact-window">
+                <div class="xp-titlebar">
+                    <div class="xp-titlebar-text">
+                        <span class="xp-icon">📧</span>
+                        Let's Get in Touch - Outlook Express
+                    </div>
+                    <div class="xp-window-controls">
+                        <button class="xp-control minimize">_</button>
+                        <button class="xp-control maximize">□</button>
+                        <button class="xp-control close">×</button>
+                    </div>
+                </div>
+                <div class="xp-window-content">
+                    <h2 class="section-title">Contact me at</h2>
+                    <div class="contact-content">
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <span class="contact-icon">📧</span>
+                                <span>Placehoolder@correo.com</span>
+                            </div>
+                            <div class="contact-item">
+                                <span class="contact-icon">📱</span>
+                                <span>+(Placeholder) numero celular</span>
+                            </div>
+                            <div class="contact-item">
+                                <span class="contact-icon">📍</span>
+                                <span>Mexico, Puebla</span>
+                            </div>
+                        </div>
+                        <form class="contact-form xp-form">
+                            <input type="text" class="xp-input" placeholder="Your Name" required>
+                            <input type="email" class="xp-input" placeholder="Your Email" required>
+                            <textarea class="xp-textarea" placeholder="Your Message" rows="5" required></textarea>
+                            <button type="submit" class="xp-button submit-btn">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shopping Cart Modal -->
+    <div id="cart-modal" class="cart-modal hidden">
+        <div class="xp-window cart-window">
+            <div class="xp-titlebar">
+                <div class="xp-titlebar-text">
+                    <span class="xp-icon">🛒</span>
+                    Shopping Cart
+                </div>
+                <div class="xp-window-controls">
+                    <button id="close-cart" class="xp-control close">×</button>
+                </div>
+            </div>
+            <div class="xp-window-content">
+                <div id="cart-items" class="cart-items">
+                    <!-- Cart items will be populated here -->
+                </div>
+                <div class="cart-footer">
+                    <div class="cart-total">
+                        <span>Total: $<span id="cart-total">0.00</span></span>
+                    </div>
+                    <button class="xp-button checkout-btn">Proceed to Checkout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="xp-taskbar">
+            <div class="start-button">
+                <span class="start-icon">🪟</span>
+                <span>Start</span>
+            </div>
+            <div class="taskbar-windows" id="taskbar-windows">
+                <!-- Minimized windows will appear here -->
+            </div>
+            <div class="taskbar-center">
+                <p>&copy; 2025 ChippssStore. All rights reserved.  </div>
+            <div class="system-tray">
+                <span class="tray-icon">🔊</span>
+                <span class="tray-icon">📶</span>
+                <span class="tray-time">12:34 PM</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/config.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/animations.js"></script>
+</body>
+</html>

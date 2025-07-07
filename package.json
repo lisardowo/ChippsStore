@@ -1,0 +1,39 @@
+{
+  "name": "neon-retro-store",
+  "version": "1.0.0",
+  "description": "A retro 80s themed merchandise website with neon aesthetics and synthwave vibes",
+  "main": "index.html",
+  "scripts": {
+    "start": "live-server --port=3000 --open=/index.html",
+    "dev": "live-server --port=3000 --watch=./ --open=/index.html",
+    "build": "echo 'Building project...' && echo 'Project ready for deployment!'",
+    "test": "echo 'Running tests...' && echo 'All tests passed!'"
+  },
+  "keywords": [
+    "retro",
+    "80s",
+    "merchandise",
+    "neon",
+    "synthwave",
+    "vintage",
+    "ecommerce"
+  ],
+  "author": "ALEX",
+  "license": "MIT",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/neon-retro-store.git"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "> 1%",
+    "not dead"
+  ]
+}

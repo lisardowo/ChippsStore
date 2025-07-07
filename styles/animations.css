@@ -1,0 +1,630 @@
+/* Animations CSS - Keyframes and Animation Effects */
+
+/* Neon Flicker Animation */
+@keyframes neon-flicker {
+  0%, 18%, 22%, 25%, 53%, 57%, 100% {
+    text-shadow: 
+      0 0 5px currentColor,
+      0 0 10px currentColor,
+      0 0 15px currentColor,
+      0 0 20px currentColor;
+  }
+  20%, 24%, 55% {
+    text-shadow: 
+      0 0 2px currentColor,
+      0 0 5px currentColor,
+      0 0 8px currentColor,
+      0 0 12px currentColor;
+  }
+}
+
+/* Glitch Text Effect */
+.glitch-text {
+  position: relative;
+  color: var(--neon-pink);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  animation: glitch 2s infinite;
+}
+
+.glitch-text::before,
+.glitch-text::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glitch-text::before {
+  animation: glitch-1 0.5s infinite;
+  color: var(--neon-blue);
+  z-index: -1;
+}
+
+.glitch-text::after {
+  animation: glitch-2 0.5s infinite;
+  color: var(--neon-green);
+  z-index: -2;
+}
+
+@keyframes glitch {
+  0%, 14%, 15%, 49%, 50%, 99%, 100% {
+    transform: skewX(0deg);
+  }
+  15% {
+    transform: skewX(5deg);
+  }
+  50% {
+    transform: skewX(-5deg);
+  }
+}
+
+@keyframes glitch-1 {
+  0%, 14%, 15%, 49%, 50%, 99%, 100% {
+    transform: translate(0);
+  }
+  15% {
+    transform: translate(-2px, 2px);
+  }
+  50% {
+    transform: translate(2px, -2px);
+  }
+}
+
+@keyframes glitch-2 {
+  0%, 20%, 21%, 59%, 60%, 99%, 100% {
+    transform: translate(0);
+  }
+  21% {
+    transform: translate(2px, 2px);
+  }
+  60% {
+    transform: translate(-2px, -2px);
+  }
+}
+
+/* Floating Animation */
+@keyframes float {
+  0% {
+    transform: translateY(0px) translateX(0px);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) translateX(50px);
+    opacity: 0;
+  }
+}
+
+/* Pyramid Glow Animation */
+@keyframes pyramid-glow {
+  0%, 100% {
+    filter: brightness(1) hue-rotate(0deg);
+    transform: scale(1);
+  }
+  50% {
+    filter: brightness(1.5) hue-rotate(90deg);
+    transform: scale(1.1);
+  }
+}
+
+/* Pulse Animation */
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+}
+
+/* Scan Line Animation */
+@keyframes scan-line {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Slide In Animations */
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Zoom In Animation */
+@keyframes zoomIn {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Bounce Animation */
+@keyframes bounce {
+  0%, 20%, 53%, 80%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+  40%, 43% {
+    transform: translate3d(0, -30px, 0);
+  }
+  70% {
+    transform: translate3d(0, -15px, 0);
+  }
+  90% {
+    transform: translate3d(0, -4px, 0);
+  }
+}
+
+/* Matrix Rain Effect */
+.matrix-rain {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.matrix-rain::before {
+  content: '01001001010010010100100101001001010010010100100101001001010010010100100101001001010010010100100101001001010010010100100101001001010010010100100101001001010010010100100101001001010010010100100101001001010010010100100101001001010010010100100101001001010010010100100101001001010010010100100101001001010010010100100101001001';
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 200%;
+  color: var(--neon-green);
+  font-family: 'Courier New', monospace;
+  font-size: 12px;
+  line-height: 14px;
+  word-wrap: break-word;
+  opacity: 0.1;
+  animation: matrix-fall 20s linear infinite;
+}
+
+@keyframes matrix-fall {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+/* Loading Spinner */
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--bg-tertiary);
+  border-top: 3px solid var(--neon-pink);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 20px auto;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Hover Effects for Cards */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Stagger Animation for Product Cards */
+.products-grid .product-card {
+  animation: fadeIn 0.6s ease forwards;
+  opacity: 0;
+}
+
+.products-grid .product-card:nth-child(1) { animation-delay: 0.1s; }
+.products-grid .product-card:nth-child(2) { animation-delay: 0.2s; }
+.products-grid .product-card:nth-child(3) { animation-delay: 0.3s; }
+.products-grid .product-card:nth-child(4) { animation-delay: 0.4s; }
+.products-grid .product-card:nth-child(5) { animation-delay: 0.5s; }
+.products-grid .product-card:nth-child(6) { animation-delay: 0.6s; }
+
+/* Parallax Effect */
+.parallax-element {
+  transform: translateZ(0);
+  animation: parallax-float 6s ease-in-out infinite;
+}
+
+@keyframes parallax-float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* Typewriter Effect */
+.typewriter {
+  overflow: hidden;
+  border-right: 2px solid var(--neon-pink);
+  white-space: nowrap;
+  margin: 0 auto;
+  letter-spacing: 0.1em;
+  animation: 
+    typing 3.5s steps(40, end),
+    blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink-caret {
+  from, to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: var(--neon-pink);
+  }
+}
+
+/* Glow Pulse Effect */
+.glow-pulse {
+  animation: glow-pulse 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow-pulse {
+  from {
+    box-shadow: 0 0 5px currentColor;
+  }
+  to {
+    box-shadow: 0 0 20px currentColor, 0 0 30px currentColor;
+  }
+}
+
+/* Scale on Hover */
+.scale-hover {
+  transition: transform 0.3s ease;
+}
+
+.scale-hover:hover {
+  transform: scale(1.05);
+}
+
+/* Rotate Animation */
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.rotate-infinite {
+  animation: rotate 20s linear infinite;
+}
+
+/* Color Shift Animation */
+@keyframes color-shift {
+  0% { color: var(--neon-pink); }
+  25% { color: var(--neon-blue); }
+  50% { color: var(--neon-green); }
+  75% { color: var(--neon-orange); }
+  100% { color: var(--neon-pink); }
+}
+
+.color-shift {
+  animation: color-shift 4s ease-in-out infinite;
+}
+
+/* Slide Up on Scroll Animation */
+.slide-up-on-scroll {
+  transform: translateY(50px);
+  opacity: 0;
+  transition: all 0.6s ease;
+}
+
+.slide-up-on-scroll.visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Shake Animation */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-10px); }
+  20%, 40%, 60%, 80% { transform: translateX(10px); }
+}
+
+.shake {
+  animation: shake 0.5s ease-in-out;
+}
+
+/* Minimize Animation */
+.minimizing {
+    animation: minimizeToTaskbar 0.5s ease-in-out forwards;
+    z-index: 9999;
+}
+
+@keyframes minimizeToTaskbar {
+    0% {
+        transform: scale(1) translate(0, 0);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(0.8) translate(0, 20px);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(0.1) translate(-50vw, 50vh);
+        opacity: 0;
+    }
+}
+
+.minimized {
+    display: none !important;
+}
+
+/* Restore Animation */
+.restoring {
+    animation: restoreFromTaskbar 0.5s ease-in-out forwards;
+    z-index: 9999;
+}
+
+@keyframes restoreFromTaskbar {
+    0% {
+        transform: scale(0.1) translate(-50vw, 50vh);
+        opacity: 0;
+        display: block !important;
+    }
+    50% {
+        transform: scale(0.8) translate(0, 20px);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1) translate(0, 0);
+        opacity: 1;
+    }
+}
+
+/* Close Animation */
+.closing {
+    animation: closeToStart 0.6s ease-in-out forwards;
+    z-index: 9999;
+}
+
+@keyframes closeToStart {
+    0% {
+        transform: scale(1) translate(0, 0);
+        opacity: 1;
+    }
+    30% {
+        transform: scale(0.9) translate(0, 10px);
+        opacity: 0.9;
+    }
+    70% {
+        transform: scale(0.3) translate(-40vw, 40vh);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(0.05) translate(-45vw, 45vh);
+        opacity: 0;
+    }
+}
+
+.closed {
+    display: none !important;
+}
+
+/* Open Animation for when windows are reopened */
+.opening {
+    animation: openFromStart 0.6s ease-in-out forwards;
+    z-index: 9999;
+}
+
+@keyframes openFromStart {
+    0% {
+        transform: scale(0.05) translate(-45vw, 45vh);
+        opacity: 0;
+        display: block !important;
+    }
+    30% {
+        transform: scale(0.3) translate(-40vw, 40vh);
+        opacity: 0.5;
+    }
+    70% {
+        transform: scale(0.9) translate(0, 10px);
+        opacity: 0.9;
+    }
+    100% {
+        transform: scale(1) translate(0, 0);
+        opacity: 1;
+    }
+}
+
+/* Start Button Highlight Animation */
+.start-button-highlight {
+    animation: startButtonGlow 1.5s ease-in-out;
+}
+
+@keyframes startButtonGlow {
+    0% {
+        background: linear-gradient(to bottom, #2d5bdb, #1e4bb8);
+        box-shadow: 0 0 0 rgba(77, 144, 226, 0);
+        transform: scale(1);
+    }
+    25% {
+        background: linear-gradient(to bottom, #4d90e2, #3d7bd8);
+        box-shadow: 0 0 10px rgba(77, 144, 226, 0.6);
+        transform: scale(1.05);
+    }
+    50% {
+        background: linear-gradient(to bottom, #5da0f2, #4d90e2);
+        box-shadow: 0 0 20px rgba(77, 144, 226, 0.8);
+        transform: scale(1.1);
+    }
+    75% {
+        background: linear-gradient(to bottom, #4d90e2, #3d7bd8);
+        box-shadow: 0 0 15px rgba(77, 144, 226, 0.6);
+        transform: scale(1.05);
+    }
+    100% {
+        background: linear-gradient(to bottom, #2d5bdb, #1e4bb8);
+        box-shadow: 0 0 0 rgba(77, 144, 226, 0);
+        transform: scale(1);
+    }
+}
+
+/* Start Button Pulse for indicating closed windows */
+.start-button-pulse {
+    animation: startButtonPulse 2s ease-in-out infinite;
+}
+
+@keyframes startButtonPulse {
+    0%, 100% {
+        box-shadow: 0 0 0 rgba(77, 144, 226, 0);
+    }
+    50% {
+        box-shadow: 0 0 15px rgba(77, 144, 226, 0.7);
+    }
+}
+
+/* Window collection animation when multiple windows reopen */
+.window-collection {
+    animation: windowCollection 0.8s ease-out forwards;
+}
+
+@keyframes windowCollection {
+    0% {
+        transform: scale(0.1) translate(-45vw, 45vh);
+        opacity: 0;
+    }
+    40% {
+        transform: scale(0.6) translate(-25vw, 25vh);
+        opacity: 0.7;
+    }
+    70% {
+        transform: scale(0.9) translate(-5vw, 5vh);
+        opacity: 0.9;
+    }
+    100% {
+        transform: scale(1) translate(0, 0);
+        opacity: 1;
+    }
+}
+
+/* Enhanced window management styles */
+.window-state-transition {
+    pointer-events: none;
+}
+
+.window-state-transition * {
+    pointer-events: none;
+}
+
+/* Responsive Animation Adjustments */
+@media (max-width: 768px) {
+  .glitch-text::before,
+  .glitch-text::after {
+    display: none; /* Disable glitch effect on mobile for performance */
+  }
+  
+  .matrix-rain::before {
+    font-size: 8px;
+    line-height: 10px;
+  }
+  
+  .parallax-element {
+    animation: none; /* Disable parallax on mobile */
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* Respect user preference for reduced motion */
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
