@@ -1,6 +1,6 @@
-# NEON RETRO STORE 🌟
+# ChippsStore
 
-A radical 80s-themed merchandise website featuring neon aesthetics, synthwave vibes, and totally awesome interactive elements!
+Interactive eccoomerce platform to help small artist to sell their products
 
 ## 🎯 Project Overview
 
